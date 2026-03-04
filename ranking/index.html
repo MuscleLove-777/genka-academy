@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CRO職種別の月額請求単価（チャージレート）ランキング。経験年数・カテゴリ別にフィルタリング・ソートして比較できます。">
+  <title>単価ランキング | 原価計算アカデミー</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- ========== ヘッダー ========== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="site-logo">
+        <span class="logo-icon">&#x1F9EE;</span>
+        <span>原価計算アカデミー</span>
+      </a>
+
+      <!-- デスクトップナビ -->
+      <nav class="nav-menu" aria-label="メインナビゲーション">
+        <a href="../index.html">ホーム</a>
+        <a href="../ranking/index.html">単価ランキング</a>
+        <a href="../roles/index.html">CRO職種</a>
+        <a href="../phases/index.html">フェーズ別コスト</a>
+        <div class="nav-dropdown" id="nav-dropdown-tools">
+          <span class="nav-dropdown-toggle nav-menu-link">ツール</span>
+          <div class="nav-dropdown-menu">
+            <a href="../tools/calculator.html">シミュレーター</a>
+            <a href="../tools/quiz.html">クイズ</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ハンバーガー -->
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- モバイルメニュー -->
+    <nav class="mobile-menu" id="mobile-menu" aria-label="モバイルナビゲーション">
+      <a href="../index.html">ホーム</a>
+      <a href="../ranking/index.html">単価ランキング</a>
+      <a href="../roles/index.html">CRO職種</a>
+      <a href="../phases/index.html">フェーズ別コスト</a>
+      <span class="mobile-submenu-label">ツール</span>
+      <div class="mobile-submenu">
+        <a href="../tools/calculator.html">シミュレーター</a>
+        <a href="../tools/quiz.html">クイズ</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========== メインコンテンツ ========== -->
+  <main>
+
+    <!-- ===== ヒーローセクション ===== -->
+    <section class="hero">
+      <div class="container">
+        <span class="hero-icon" aria-hidden="true">&#x1F3C6;</span>
+        <h1>CRO職種別 単価ランキング</h1>
+        <p class="hero-subtitle">全職種 &times; 全経験年数の月額請求単価を一覧で比較。<br>フィルタリング・ソートで欲しい情報にすぐアクセス。</p>
+      </div>
+    </section>
+
+    <!-- ===== フィルターバー ===== -->
+    <section class="ranking-filter-bar" id="filter-bar">
+      <div class="container">
+        <div class="filter-bar-inner">
+          <!-- カテゴリタブ -->
+          <div class="filter-group">
+            <label class="filter-label">カテゴリ</label>
+            <div class="filter-tabs" id="category-tabs">
+              <button class="filter-tab active" data-category="all">全て</button>
+              <button class="filter-tab" data-category="clinical">臨床開発系</button>
+              <button class="filter-tab" data-category="data">データ系</button>
+              <button class="filter-tab" data-category="medical">メディカル系</button>
+              <button class="filter-tab" data-category="management">管理系</button>
+            </div>
+          </div>
+
+          <!-- 経験年数セレクト + 検索 -->
+          <div class="filter-row">
+            <div class="filter-group filter-group-select">
+              <label class="filter-label" for="experience-filter">経験年数</label>
+              <select class="form-select" id="experience-filter">
+                <option value="all">全て</option>
+                <option value="1-3年">1-3年</option>
+                <option value="4-6年">4-6年</option>
+                <option value="7-10年">7-10年</option>
+                <option value="10年以上">10年以上</option>
+              </select>
+            </div>
+            <div class="filter-group filter-group-search">
+              <label class="filter-label" for="search-filter">職種名検索</label>
+              <input type="text" class="form-input" id="search-filter" placeholder="例: CRA、データ、PM...">
+            </div>
+          </div>
+        </div>
+        <div class="filter-result-count" id="result-count"></div>
+      </div>
+    </section>
+
+    <!-- ===== ランキングテーブル ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="table-responsive-cards">
+          <div class="table-wrapper">
+            <table class="data-table" id="ranking-table">
+              <thead>
+                <tr>
+                  <th class="sortable" data-sort="rank" style="width:60px;">順位 <span class="sort-icon"></span></th>
+                  <th class="sortable" data-sort="name">職種名 <span class="sort-icon"></span></th>
+                  <th class="sortable" data-sort="category">カテゴリ <span class="sort-icon"></span></th>
+                  <th class="sortable" data-sort="years">経験年数 <span class="sort-icon"></span></th>
+                  <th class="sortable" data-sort="monthlyRate">月額請求単価 <span class="sort-icon"></span></th>
+                  <th class="sortable" data-sort="monthlyCost">月額原価 <span class="sort-icon"></span></th>
+                  <th class="sortable" data-sort="annualSalary">年収 <span class="sort-icon"></span></th>
+                  <th class="sortable" data-sort="demandScore" style="min-width:160px;">需要スコア <span class="sort-icon"></span></th>
+                </tr>
+              </thead>
+              <tbody id="ranking-body">
+                <!-- JS で動的生成 -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== フッター ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-section">
+          <h4>原価計算アカデミー</h4>
+          <p class="text-sm" style="color: rgba(255,255,255,0.6); line-height: 1.8;">
+            CRO（医薬品開発業務受託機関）の原価構造を体系的に学べるサイトです。職種別単価・フェーズ別コスト・原価計算シミュレーターなど、実務に役立つ情報を提供します。
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>サイトマップ</h4>
+          <ul>
+            <li><a href="../index.html">ホーム</a></li>
+            <li><a href="../ranking/index.html">単価ランキング</a></li>
+            <li><a href="../roles/index.html">CRO職種</a></li>
+            <li><a href="../phases/index.html">フェーズ別コスト</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>ツール</h4>
+          <ul>
+            <li><a href="../tools/calculator.html">原価計算シミュレーター</a></li>
+            <li><a href="../tools/quiz.html">理解度クイズ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>免責事項</h4>
+          <ul>
+            <li><a href="#">免責事項</a></li>
+            <li><a href="#">データ出典</a></li>
+            <li><a href="#">プライバシーポリシー</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>本サイトのデータは公開情報に基づく参考値です。実際の金額は企業・案件によって異なります。</p>
+        <p>&copy; 2024 原価計算アカデミー All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/ranking.js"></script>
+</body>
+</html>
