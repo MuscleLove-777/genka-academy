@@ -1,0 +1,21 @@
+# 原価計算アカデミー | CRO原価計算の教科書
+
+> 原価計算アカデミー - CROの原価構造を体系的に学ぶ。職種別単価ランキング・フェーズ別コスト・原価計算シミュレーターで、見えないコストを見える化。
+
+## Main Pages
+
+- [genka academy](https://musclelove-777.github.io/genka-academy/): main page of 原価計算アカデミー | CRO原価計算の教科書.
+- [phases](https://musclelove-777.github.io/genka-academy/phases/): main page of 原価計算アカデミー | CRO原価計算の教科書.
+- [ranking](https://musclelove-777.github.io/genka-academy/ranking/): main page of 原価計算アカデミー | CRO原価計算の教科書.
+- [roles](https://musclelove-777.github.io/genka-academy/roles/): main page of 原価計算アカデミー | CRO原価計算の教科書.
+
+## Articles (most recent)
+
+- [detail.html](https://musclelove-777.github.io/genka-academy/roles/detail.html): article on 原価計算アカデミー | CRO原価計算の教科書.
+- [calculator.html](https://musclelove-777.github.io/genka-academy/tools/calculator.html): article on 原価計算アカデミー | CRO原価計算の教科書.
+- [quiz.html](https://musclelove-777.github.io/genka-academy/tools/quiz.html): article on 原価計算アカデミー | CRO原価計算の教科書.
+
+## About this file
+
+This llms.txt follows the llmstxt.org proposal and lists the main entry points of this site for LLM-based crawlers and AI search agents.
+Generated automatically from sitemap.xml. Source repository: https://github.com/MuscleLove-777/genka-academy
